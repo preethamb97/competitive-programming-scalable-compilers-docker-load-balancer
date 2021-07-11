@@ -24,3 +24,14 @@ services:
     ports: 
       - 3333:1111
     # network_mode: host
+
+  nginxloadbalancer:
+    container_name: nginxloadbalancer
+    build: ./NGINXLOADBALANCER
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on: 
+      - linuxcontainer1
+      - linuxcontainer2
+      - linuxcontainer3
+    network_mode: host
