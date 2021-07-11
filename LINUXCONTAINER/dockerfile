@@ -1,54 +1,22 @@
 FROM ubuntu:18.04
 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
 WORKDIR /home/app
 
 RUN apt-get update
-# RUN apt-get clean && apt-get update
 
-RUN apt-get update && apt-get install -y -q --no-install-recommends \
-        apt-transport-https \
-        build-essential \
-        ca-certificates \
-        curl \
-        git \
-        libssl-dev \
-        wget \
-    && rm -rf /var/lib/apt/lists/*
-
-
-
-RUN curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-
-ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 12.22.3
-
-RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
-    && . $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default $NODE_VERSION
-
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH $NVM_DIR/v$NODE_VERSION/bin:$PATH
+RUN apt-get install --yes curl
+RUN curl --silent --location https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get install --yes nodejs
+RUN apt-get install --yes build-essential
 
 RUN mkdir /usr/app
 RUN mkdir /usr/app/log
 
-WORKDIR /usr/app
-VOLUME /usr/app/log
-COPY . /usr/app
-RUN . $NVM_DIR/nvm.sh && npm install -g nodemon && npm --version && nvm --version
-
-RUN mkdir expressapp
-
-COPY ./API/package.json /EXPRESSAPP
+COPY  ./API/. /expressapp/.
 
 ENV APPPORTID=1111
-
-COPY ./API/. /usr/app/expressapp
-
-RUN . $NVM_DIR/nvm.sh && cd /usr/app/expressapp && npm i && npm start && ls -las
+RUN cd /expressapp/; npm install; npm i -g nodemon;
 
 EXPOSE 1111
+
+CMD ["nodemon", "/expressapp/index.js"]

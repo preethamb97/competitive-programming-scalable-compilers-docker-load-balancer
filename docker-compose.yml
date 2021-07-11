@@ -7,7 +7,7 @@ services:
     build: ./LINUXCONTAINER
     ports: 
       - 1111:1111
-    network_mode: host
+    # network_mode: host
 
   linuxcontainer2:
     restart: always
@@ -15,7 +15,7 @@ services:
     build: ./LINUXCONTAINER
     ports: 
       - 2222:1111
-    network_mode: host
+    # network_mode: host
     
   linuxcontainer3:
     restart: always
@@ -23,4 +23,4 @@ services:
     build: ./LINUXCONTAINER
     ports: 
       - 3333:1111
-    network_mode: host
+    # network_mode: host
