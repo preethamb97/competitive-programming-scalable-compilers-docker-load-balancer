@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  linuxcontainer1:
+    restart: always
+    container_name: linuxcontainer1
+    build: ./LINUXCONTAINER
+    ports: 
+      - 1111:1111
+    network_mode: host
+
+  linuxcontainer2:
+    restart: always
+    container_name: linuxcontainer2
+    build: ./LINUXCONTAINER
+    ports: 
+      - 2222:1111
+    network_mode: host
+    
+  linuxcontainer3:
+    restart: always
+    container_name: linuxcontainer3
+    build: ./LINUXCONTAINER
+    ports: 
+      - 3333:1111
+    network_mode: host
