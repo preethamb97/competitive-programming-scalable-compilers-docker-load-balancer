@@ -14,4 +14,4 @@ module.exports.CODE_EXECUTION_STATUS = {
   FAILURE: 2
 };
 
-module.exports.TEMP_FOLDER_PATH = __dirname+'/../temp/';
+module.exports.TEMP_FOLDER_PATH = __dirname+'/../tempfolder/';
