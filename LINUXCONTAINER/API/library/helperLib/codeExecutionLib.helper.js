@@ -36,7 +36,11 @@ module.exports.codeExecutorForPython3 = async (userId, codeData) => {
     };
   } catch (error) {
     console.log(error)
-    return [];
+    return {
+      stderr: "executable code thrown an exception",
+      stdout: "",
+      status: global.CODE_EXECUTION_STATUS.FAILURE
+    };
   }
 }
 
