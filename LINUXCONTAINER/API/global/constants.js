@@ -6,7 +6,8 @@ module.exports.CODE_EXECUTION_TYPES = {
     CPP: 3,
     C: 4,
     GOLANG: 5,
-    PHP: 6
+    PHP: 6,
+    PYTHON2: 7
 };
 
 module.exports.CODE_EXECUTION_STATUS = {
