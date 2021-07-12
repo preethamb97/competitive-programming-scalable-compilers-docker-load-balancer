@@ -12,5 +12,14 @@
 ### execution_type:1
 ### code_data param will contain buffer of file(for example code.py)
 
+## different execution types
+### 1. python3
+### 2. javascript
+### 3. CPP
+### 4. C
+### 5. GOLANG
+### 6. PHP
 
-### this nginx load balancer uses round robit to spin up containers and distribute compiled code output to user
+
+
+### this nginx load balancer uses round robit to spin up containers and distribute compiled code output to user.
