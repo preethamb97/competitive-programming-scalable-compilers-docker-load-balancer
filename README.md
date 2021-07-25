@@ -23,4 +23,4 @@
 
 
 
-### this nginx load balancer uses round robit to spin up containers and distribute compiled code output to user.
+### this nginx load balancer uses round robin to spin up containers and distribute compiled code output to user.
