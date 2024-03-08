@@ -1,4 +1,4 @@
-# compitative-programming-scallable-compilers-with-docker-and-load-balancer
+# competitive-programming-scalable-compilers-docker-load-balancer
 
 
 ## to spin up all containers
